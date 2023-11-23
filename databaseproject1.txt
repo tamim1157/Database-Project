@@ -1,0 +1,42 @@
+create table students(
+student_id number not null primary key,
+Name varchar(15) not null,
+Address varchar(15),
+phone number,
+email varchar(30));
+
+create table teachers(
+teacher_id number not null primary key,
+Name varchar(15) NOT NULL,
+Address varchar(15),
+phone number,
+email varchar(30));
+
+create table departments(
+department_id number not null primary key,
+department_name varchar(10) not null);
+
+create table courses(
+course_id number NOT NULL PRIMARY KEY,
+course_name varchar(10) NOT NULL,
+course_desc varchar(20),
+department_id number NOT NULL,
+foreign key(department_id) references departments(department_id));
+
+create table classes(
+class_id number not null primary key,
+class_name varchar(10) not null,
+course_id number not null,
+teacher_id number not null,
+foreign key(teacher_id) references teachers(teacher_id));
+
+ create table enrollments(
+enrollment_id number not null primary key,
+student_id number not null,
+class_id number not null,
+enrollment_date date,
+foreign key(student_id) references students(student_id),
+foreign key(class_id) references classes(class_id));
+
+
+

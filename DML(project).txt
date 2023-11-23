@@ -1,0 +1,87 @@
+--**Insert Data**--
+
+insert into students values(1,'sakib','khulna',01814786,'shasan@gmail.com');
+insert into students values(2,'rafi','Dhaka',01514656,'rafi@gmail.com');
+insert into students values(3,'afif','rangpur',01614564,'afif@gmail.com');
+insert into students values(4,'sabbir','rajshahi',01714987,'sabbir@gmail.com');
+insert into students values(5,'mushfik','barisal',01814786,'mushfikhasan@gmail.com');
+insert into students values(6,'rafid','cumilla',01513656,'rafid@gmail.com');
+insert into students values(7,'arif','bhola',01619564,'arif@gmail.com');
+insert into students values(8,'sabuj','rangamati',01734987,'sabuj@gmail.com');
+insert into students values(9,'mahmud','jashore',01884786,'mahmud@gmail.com');
+insert into students values(10,'karim','magura',01594656,'karim@gmail.com');
+
+
+insert into teachers values(1,'mr.abid','jashore',01871678,'abid@gmail.com');
+insert into teachers values(2,'mr.arif','dhaka',01771678,'arif@gmail.com');
+insert into teachers values(3,'mr.shafiul','khulna',01574678,'sujon@gmail.com');
+insert into teachers values(4,'mr.noyon','barisal',01561678,'noyon@gmail.com');
+insert into teachers values(5,'mr.rahman','sylhet',01872678,'abid@gmail.com');
+insert into teachers values(6,'mr.sukanto','natore',01771978,'sb@gmail.com');
+insert into teachers values(7,'mr.shafin','cumilla',01578678,'dipto@gmail.com');
+insert into teachers values(8,'mr.rakib','kushtia',01571678,'rakibislam@gmail.com');
+insert into teachers values(9,'mr.alamin','rajshahi',01841678,'alamin@gmail.com');
+insert into teachers values(10,'mr.alif','chattogram',01721678,'armaanalif@gmail.com');
+
+
+
+insert into departments values(1,'CSE');
+insert into departments values(2,'EEE');
+insert into departments values(3,'MSE');
+insert into departments values(4,'ECE');
+insert into departments values(5,'ESE');
+insert into departments values(6,'CE');
+insert into departments values(7,'ME');
+insert into departments values(8,'URP');
+insert into departments values(9,'BECM');
+insert into departments values(10,'MME');
+
+
+insert into courses values(1,'DLD DESIGN','computer related sub',1);
+insert into courses values(2,'circuit',' mathmatical part',2);
+insert into courses values(3,'physics','classical physics',3);
+insert into courses values(4,'chemistry','solution analysis',4);
+insert into courses values(5,'energy distribution','concept of energy',5);
+insert into courses values(6,'structural design','logical part',6);
+insert into courses values(7,'automobile eng','design process',7);
+insert into courses values(8,'3d planning','urban planning',8);
+insert into courses values(9,'construction eng','building eng',9);
+insert into courses values(10,'material eng','metal detection',10);
+
+insert into classes values(1001,'DLD 101',1,1);
+insert into classes values(1002,'EEE 101',2,2);
+insert into classes values(1003,'physics 101',3,3);
+insert into classes values(1004,'chemistry 101',4,4);
+insert into classes values(1005,'ESE 101',5,5);
+insert into classes values(1006,'ce 101',6,6);
+insert into classes values(1007,'me 101',7,7);
+insert into classes values(1008,'urp 101',8,8);
+insert into classes values(1009,'becm 101',9,9);
+insert into classes values(1010,'mme 101',10,10);
+
+ insert into enrollments values(9001,1,1001,TO_DATE('2012/04/12','yyyy/MM/dd'));
+ insert into enrollments values(9002,2,1002,TO_DATE('2013/03/22','yyyy/MM/dd'));
+ insert into enrollments values(9003,3,1003,TO_DATE('2011/02/02','yyyy/MM/dd'));
+ insert into enrollments values(9004,4,1004,TO_DATE('2010/01/12','yyyy/MM/dd'));
+ insert into enrollments values(9005,5,1005,TO_DATE('2014/04/12','yyyy/MM/dd'));
+ insert into enrollments values(9006,6,1006,TO_DATE('2018/03/22','yyyy/MM/dd'));
+ insert into enrollments values(9007,7,1007,TO_DATE('2001/02/02','yyyy/MM/dd'));
+ insert into enrollments values(9008,8,1008,TO_DATE('2000/01/12','yyyy/MM/dd'));
+ insert into enrollments values(9009,9,1009,TO_DATE('2019/04/12','yyyy/MM/dd'));
+ insert into enrollments values(9010,10,1010,TO_DATE('2022/03/22','yyyy/MM/dd'));
+
+
+--display data using command--
+
+SELECT * FROM Teachers WHERE email = 'abid@gmail.com';
+SELECT * FROM Departments WHERE name = 'EEE';
+
+--subquery--
+->select name from students where student_id=(select student_id from enrollments where class_id=1001);
+
+->select name from teachers where teacher_id=(select teacher_id from classes where course_id=7);
+->select name from departments where department_id=(select department_id from courses where course_id=(select course_id from classes where name='EEE 101'));
+
+
+
+
